@@ -25,8 +25,8 @@ def change_base(
 
 
 def rotate(
-    x: Union[float, np.ndarray[Any, np.dtype[np.floating[Any]]]],
-    y: Union[float, np.ndarray[Any, np.dtype[np.floating[Any]]]],
+    x: Union[float, np.ndarray],
+    y: Union[float, np.ndarray],
     psi: float,
 ) -> Tuple[Any, Any]:
     """Rotate all coordinates in the x and y lists counterclockwise by the angle psi (in

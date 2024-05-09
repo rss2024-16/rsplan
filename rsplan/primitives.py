@@ -72,7 +72,7 @@ class Path:
         return x_coords, y_coords, yaw_coords
 
     @functools.lru_cache
-    def waypoints(self) -> List[Waypoint]:
+    def waypoints(self) -> List[Tuple]:
         """Interpolate the path's segments into a list of Waypoints. First compute the
         pure segment points, then stitch to path list of points. For negative segments,
         we find the segment motion in positive discretization, then we adjust the sign
@@ -101,7 +101,7 @@ class Path:
             # For next segment, set first point to last pt in the current path
             x0, y0, yaw0 = path_points[-1][0], path_points[-1][1], path_points[-1][2]
 
-        return [Waypoint(*point) for point in path_points]
+        return [(point[0], point[1], point[2]) for point in path_points]
 
 
     def __hash__(self) -> int:
